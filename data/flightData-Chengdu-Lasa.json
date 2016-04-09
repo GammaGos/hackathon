@@ -1,0 +1,273 @@
+[{
+	"company": "深圳航空",
+	"flight": "ZH4405",
+	"departTime": "06:15",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "08:40",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥795"
+}, {
+	"company": "深圳航空",
+	"flight": "ZH4403",
+	"departTime": "06:45",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:20",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥795"
+}, {
+	"company": "深圳航空",
+	"flight": "ZH4401",
+	"departTime": "07:15",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:50",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥797"
+}, {
+	"company": "中国国航",
+	"flight": "CA4405",
+	"departTime": "06:15",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "08:40",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥800"
+}, {
+	"company": "中国国航",
+	"flight": "CA4403",
+	"departTime": "06:45",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:20",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥800"
+}, {
+	"company": "中国国航",
+	"flight": "CA4401",
+	"departTime": "07:15",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:50",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥800"
+}, {
+	"company": "山东航空",
+	"flight": "SC4405",
+	"departTime": "06:15",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "08:40",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥819"
+}, {
+	"company": "山东航空",
+	"flight": "SC4403",
+	"departTime": "06:45",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:20",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥819"
+}, {
+	"company": "山东航空",
+	"flight": "SC4401",
+	"departTime": "07:15",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:50",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥819"
+}, {
+	"company": "祥鹏航空",
+	"flight": "8L9627",
+	"departTime": "10:15",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "13:50",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥910"
+}, {
+	"company": "西藏航空",
+	"flight": "TV6335",
+	"departTime": "06:45",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:20",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥953"
+}, {
+	"company": "西藏航空",
+	"flight": "TV6337",
+	"departTime": "07:15",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:50",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥953"
+}, {
+	"company": "四川航空",
+	"flight": "3U8657",
+	"departTime": "06:10",
+	"departAirport": "双流国际机场T1",
+	"arriveTime": "08:30",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥958"
+}, {
+	"company": "中国国航",
+	"flight": "CA4112",
+	"departTime": "12:45",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "15:10",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1010"
+}, {
+	"company": "深圳航空",
+	"flight": "ZH4112",
+	"departTime": "12:45",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "15:10",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1011"
+}, {
+	"company": "四川航空",
+	"flight": "3U8695",
+	"departTime": "08:25",
+	"departAirport": "双流国际机场T1",
+	"arriveTime": "10:50",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1029"
+}, {
+	"company": "山东航空",
+	"flight": "SC4112",
+	"departTime": "12:45",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "15:10",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1063"
+}, {
+	"company": "中国国航",
+	"flight": "CA407",
+	"departTime": "08:20",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "10:40",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1080"
+}, {
+	"company": "西藏航空",
+	"flight": "TV9853",
+	"departTime": "06:00",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "08:20",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1096"
+}, {
+	"company": "西藏航空",
+	"flight": "TV9823",
+	"departTime": "06:20",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "08:50",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1096"
+}, {
+	"company": "西藏航空",
+	"flight": "TV9803",
+	"departTime": "06:30",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:00",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1096"
+}, {
+	"company": "四川航空",
+	"flight": "3U8719",
+	"departTime": "07:30",
+	"departAirport": "双流国际机场T1",
+	"arriveTime": "09:55",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1112"
+}, {
+	"company": "深圳航空",
+	"flight": "ZH4914",
+	"departTime": "08:20",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "10:40",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1115"
+}, {
+	"company": "中国国航",
+	"flight": "CA3953",
+	"departTime": "06:00",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "08:20",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1140"
+}, {
+	"company": "中国国航",
+	"flight": "CA3923",
+	"departTime": "06:20",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "08:50",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1140"
+}, {
+	"company": "中国国航",
+	"flight": "CA3903",
+	"departTime": "06:30",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "09:00",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1140"
+}, {
+	"company": "四川航空",
+	"flight": "3U8697",
+	"departTime": "12:20",
+	"departAirport": "双流国际机场T1",
+	"arriveTime": "14:40",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1188"
+}, {
+	"company": "东方航空",
+	"flight": "MU5473",
+	"departTime": "10:40",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "13:05",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1220"
+}, {
+	"company": "西藏航空",
+	"flight": "TV9863",
+	"departTime": "12:55",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "15:20",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1269"
+}, {
+	"company": "中国国航",
+	"flight": "CA3963",
+	"departTime": "12:55",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "15:20",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1300"
+}, {
+	"company": "西藏航空",
+	"flight": "TV9882",
+	"departTime": "19:20",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "21:45",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1574"
+}, {
+	"company": "西藏航空",
+	"flight": "TV9855",
+	"departTime": "21:10",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "23:35",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1574"
+}, {
+	"company": "中国国航",
+	"flight": "CA3982",
+	"departTime": "19:20",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "21:45",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1630"
+}, {
+	"company": "中国国航",
+	"flight": "CA3955",
+	"departTime": "21:10",
+	"departAirport": "双流国际机场T2",
+	"arriveTime": "23:35",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥1630"
+}]

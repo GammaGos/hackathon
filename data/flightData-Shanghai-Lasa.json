@@ -1,0 +1,81 @@
+[{
+	"company": "东方航空",
+	"flight": "MU522",
+	"departTime": "21:10",
+	"departAirport": "浦东国际机场T1",
+	"arriveTime": "11:00",
+	"arriveAirport": "咸阳国际机场T3",
+	"price": "¥980"
+}, {
+	"company": "东方航空",
+	"flight": "MU2158",
+	"departTime": "14:10",
+	"departAirport": "浦东国际机场T1",
+	"arriveTime": "11:00",
+	"arriveAirport": "咸阳国际机场T3",
+	"price": "¥1000"
+}, {
+	"company": "东方航空",
+	"flight": "MU2162",
+	"departTime": "17:15",
+	"departAirport": "浦东国际机场T1",
+	"arriveTime": "11:00",
+	"arriveAirport": "咸阳国际机场T3",
+	"price": "¥1000"
+}, {
+	"company": "东方航空",
+	"flight": "MU2168",
+	"departTime": "19:20",
+	"departAirport": "虹桥国际机场T2",
+	"arriveTime": "11:00",
+	"arriveAirport": "咸阳国际机场T3",
+	"price": "¥1020"
+}, {
+	"company": "上海航空",
+	"flight": "FM9397",
+	"departTime": "09:50",
+	"departAirport": "浦东国际机场T1",
+	"arriveTime": "23:25",
+	"arriveAirport": "黄花国际机场T2",
+	"price": "¥1941"
+}, {
+	"company": "南方航空",
+	"flight": "CZ3966",
+	"departTime": "10:50",
+	"departAirport": "虹桥国际机场T2",
+	"arriveTime": "23:25",
+	"arriveAirport": "黄花国际机场T2",
+	"price": "¥2158"
+}, {
+	"company": "吉祥航空",
+	"flight": "HO1071",
+	"departTime": "12:50",
+	"departAirport": "虹桥国际机场T2",
+	"arriveTime": "23:25",
+	"arriveAirport": "黄花国际机场T2",
+	"price": "¥2224"
+}, {
+	"company": "东方航空",
+	"flight": "MU2335",
+	"departTime": "07:15",
+	"departAirport": "浦东国际机场T1",
+	"arriveTime": "14:35",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥2962"
+}, {
+	"company": "西藏航空",
+	"flight": "TV9882",
+	"departTime": "14:45",
+	"departAirport": "虹桥国际机场T2",
+	"arriveTime": "21:45",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥3004"
+}, {
+	"company": "中国国航",
+	"flight": "CA3982",
+	"departTime": "14:45",
+	"departAirport": "虹桥国际机场T2",
+	"arriveTime": "21:45",
+	"arriveAirport": "贡嘎国际机场",
+	"price": "¥3340"
+}]

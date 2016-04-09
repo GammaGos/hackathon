@@ -1,0 +1,105 @@
+[{
+	"company": "东方航空",
+	"flight": "MU5474",
+	"departTime": "13:50",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "10:00",
+	"arriveAirport": "双流国际机场T2",
+	"price": "¥1090"
+}, {
+	"company": "东方航空",
+	"flight": "MU5474",
+	"departTime": "13:50",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "23:10",
+	"arriveAirport": "双流国际机场T2",
+	"price": "¥1090"
+}, {
+	"company": "东方航空",
+	"flight": "MU5474",
+	"departTime": "13:50",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "22:20",
+	"arriveAirport": "双流国际机场T2",
+	"price": "¥1160"
+}, {
+	"company": "中国国航",
+	"flight": "CA4404",
+	"departTime": "17:25",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "10:00",
+	"arriveAirport": "双流国际机场T2",
+	"price": "¥1600"
+}, {
+	"company": "西藏航空",
+	"flight": "TV9864",
+	"departTime": "22:50",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "10:00",
+	"arriveAirport": "双流国际机场T2",
+	"price": "¥1600"
+}, {
+	"company": "东方航空",
+	"flight": "MU9732",
+	"departTime": "18:50",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "09:55",
+	"arriveAirport": "黄花国际机场T2",
+	"price": "¥1640"
+}, {
+	"company": "东方航空",
+	"flight": "MU5474",
+	"departTime": "13:50",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "20:50",
+	"arriveAirport": "双流国际机场T2",
+	"price": "¥1680"
+}, {
+	"company": "四川航空",
+	"flight": "3U8658",
+	"departTime": "09:20",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "16:25",
+	"arriveAirport": "双流国际机场T1",
+	"price": "¥1816"
+}, {
+	"company": "深圳航空",
+	"flight": "ZH4402",
+	"departTime": "10:45",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "17:40",
+	"arriveAirport": "双流国际机场T2",
+	"price": "¥2200"
+}, {
+	"company": "东方航空",
+	"flight": "MU2336",
+	"departTime": "15:15",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "21:20",
+	"arriveAirport": "浦东国际机场T1",
+	"price": "¥2352"
+}, {
+	"company": "西藏航空",
+	"flight": "TV9881",
+	"departTime": "07:40",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "13:30",
+	"arriveAirport": "虹桥国际机场T2",
+	"price": "¥2544"
+}, {
+	"company": "中国国航",
+	"flight": "CA3981",
+	"departTime": "07:40",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "13:30",
+	"arriveAirport": "虹桥国际机场T2",
+	"price": "¥2670"
+}, {
+	"company": "中国国航",
+	"flight": "CA408",
+	"departTime": "17:30",
+	"departAirport": "贡嘎国际机场",
+	"arriveTime": "10:00",
+	"arriveAirport": "双流国际机场T2",
+	"price": "¥2690"
+}]

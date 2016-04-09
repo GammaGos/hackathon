@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="telephone=no" name="format-detection">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/hammer.min.js"></script>
+
+	<script type="text/javascript" src="js/iscroll.js"></script>
+	<script >
+		$(function(){
+			/*swiper*/
+			;(function(){
+				var $maskshow = $('.maskshow');
+				var maskshow = $maskshow[0];
+				var ms = new Hammer(maskshow);
+
+				var reqAnimationFrame = (function() {
+					 return window[Hammer.prefixed(window, "requestAnimationFrame")] || function(callback) {
+						 setTimeout(callback, 1000 / 60);
+					 }
+				 })();
+
+				 function dirProp(direction, hProp, vProp) {
+					 return (direction & Hammer.DIRECTION_HORIZONTAL) ? hProp : vProp
+				 }
+
+
+				 /**
+				  * Carousel
+				  * @param container
+				  * @param direction
+				  * @constructor
+				  */
+				 function HammerCarousel(container, direction) {
+					 this.container = container;
+					 this.direction = direction;
+
+					 this.panes = Array.prototype.slice.call(this.container.children, 0);
+					 this.containerSize = this.container[dirProp(direction, 'offsetWidth', 'offsetHeight')];
+
+					 this.currentIndex = 0;
+
+					 this.hammer = new Hammer.Manager(this.container);
+					 this.hammer.add(new Hammer.Pan({ direction: this.direction, threshold: 10 }));
+					 this.hammer.on("panstart panmove panend pancancel", Hammer.bindFn(this.onPan, this));
+
+					 this.show(this.currentIndex);
+				 }
+
+
+				 HammerCarousel.prototype = {
+					 /**
+					  * show a pane
+					  * @param {Number} showIndex
+					  * @param {Number} [percent] percentage visible
+					  * @param {Boolean} [animate]
+					  */
+					 show: function(showIndex, percent, animate){
+						 showIndex = Math.max(0, Math.min(showIndex, this.panes.length - 1));
+						 percent = percent || 0;
+
+						 var className = this.container.className;
+						 if(animate) {
+							 if(className.indexOf('animate') === -1) {
+								 this.container.className += ' animate';
+							 }
+						 } else {
+							 if(className.indexOf('animate') !== -1) {
+								 this.container.className = className.replace('animate', '').trim();
+							 }
+						 }
+
+						 var paneIndex, pos, translate;
+						 for (paneIndex = 0; paneIndex < this.panes.length; paneIndex++) {
+							 pos = (this.containerSize / 100) * (((paneIndex - showIndex) * 100) + percent);
+							 if(this.direction & Hammer.DIRECTION_HORIZONTAL) {
+								 translate = 'translate3d(' + pos + 'px, 0, 0)';
+							 } else {
+								 translate = 'translate3d(0, ' + pos + 'px, 0)'
+							 }
+							  this.panes[paneIndex].style.transform = translate;
+							  this.panes[paneIndex].style.mozTransform = translate;
+							  this.panes[paneIndex].style.webkitTransform = translate;
+						 }
+
+						 this.currentIndex = showIndex;
+					 },
+
+					 /**
+					  * handle pan
+					  * @param {Object} ev
+					  */
+					 onPan : function (ev) {
+						 var delta = dirProp(this.direction, ev.deltaX, ev.deltaY);
+						 var percent = (100 / this.containerSize) * delta;
+						 var animate = false;
+
+						 if (ev.type == 'panend' || ev.type == 'pancancel') {
+							 if (Math.abs(percent) > 20 && ev.type == 'panend') {
+								 this.currentIndex += (percent < 0) ? 1 : -1;
+							 }
+							 percent = 0;
+							 animate = true;
+						 }
+
+						 this.show(this.currentIndex, percent, animate);
+					 }
+				 };
+				 console.log($maskshow);
+				//  // the horizontal pane scroller
+				//  var outer = new HammerCarousel(maskshow, Hammer.DIRECTION_HORIZONTAL);
+				var outer;
+				$(document).click(function(e){
+					var target = e.target;
+					if(!$.contains(maskshow,target)){
+						if($maskshow.hasClass('on')){
+
+							outer.hammer.destroy();
+							$maskshow.removeClass('on');
+							$maskshow.removeClass('animate')
+							$maskshow.find('.hotels').each(function(){
+
+								$(this).attr("style","");
+							})
+						}else{
+
+						}
+					}else{
+
+
+					}
+				})
+
+				ms.on("panleft panright tap press", function(ev) {
+					var type = ev.type;
+					switch (type) {
+						case "press":
+							if($maskshow.hasClass('on')){
+
+							}else{
+								$maskshow.addClass('on');
+								outer = new HammerCarousel(maskshow, Hammer.DIRECTION_HORIZONTAL);
+							}
+							break;
+
+						default:
+
+							break;
+					}
+				});
+
+				$maskshow.on('click','.tag-fav',function(){
+					var $this = $(this);
+					var text = $this.text()*1;
+					 $this.text(text+1)
+
+				})
+			})();
+			// ;(function(){
+			//
+			// 	var myScroll = new IScroll($('#main')[0]);
+			// 	// myScroll.on('scrollEnd', function(){
+			// 	// 	alert(1)
+			// 	//
+			// 	// });
+			//
+			// })();
+
+		})
+
+	</script>
+</head>
+<body>
+<div style="height:320px;">
+	<div class="cm-header opacity">
+		<span class="cm-header-icon fl">
+			<i class="icon-back"></i>
+		</span>
+		<span class="cm-header-icon icon_share i_bef"></span>
+	</div>
+    <div class="map-box">
+        <div class="map">
+            <!-- map here -->
+        </div>
+        <div class="user_me">
+            <span class="avatar"><img src="img/avatar_b_01.png" alt="" /></span>
+            <big>patata</big>
+        </div>
+    </div>
+
+</div>
+<div id="main" style="position:relative;">
+	<div class="main-frame">
+		<div class="main-viewport">
+            <div class="user-box">
+                <div class="users">
+                    <p><span class="avatar"><img src="img/avatar01.png" alt="" /></span></p>
+                    <p><span class="avatar"><img src="img/avatar02.png" alt="" /></span></p>
+                    <p><span class="avatar"><img src="img/avatar01.png" alt="" /></span></p>
+                    <p class="avatar addmore"></p>
+                </div>
+                <div class="avatar more"></div>
+            </div>
+
+            <div class="v-info">
+                <h2>5日4晚 泰国游</h2>
+                <ul>
+                    <li>
+                        <small>出发</small>
+                        <big>上海</big>
+                    </li>
+                    <li>
+                        <small>返回</small>
+                        <big>新迈</big>
+                    </li>
+                    <li>
+                        <small>时间</small>
+                        <big>3.30 - 4.3</big>
+                    </li>
+                    <li>
+                        <small>经费</small>
+                        <big>~3300￥</big>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="timeline">
+
+                    <div class="time-tag geol"></div>
+
+                    <!-- add flight-->
+                    <div class="time-act">
+                        <div class="time-bar"><span class="time-tag clock"></span><span class="status">已预订</span><p>下午20：16，3月31日</p></div>
+                        <div class="flight-box">
+                            <h3>东方航空MU5401</h3>
+                            <div class="flight-from">
+                                <big>上海</big>
+                                <small>虹桥T2</small>
+                                <strong>14:20</strong>
+                            </div>
+                            <div class="flight-to">
+                                <big>北京</big>
+                                <small>首都T1</small>
+                                <strong>16:20</strong>
+                            </div>
+                            <abbr></abbr>
+                        </div>
+                        <div class="comment-box"></div>
+                    </div>
+                    <!-- add flight-->
+                    <!--add hotel   -->
+                    <div class="time-act">
+                        <div class="time-bar"><span class="time-tag clock"></span><span class="status">去预订/已预订</span><p>下午20：16，3月31日</p></div>
+                        <div class="hotel-box" >
+                            <div class="checkinfo"><b>入住日期</b> 04月21日 周四 / <b>退房日期</b> 04月24日 周日</div>
+                            <div class="maskshow" style="padding-bottom:296px;"><!-- 高度位置，212 + n*42 -->
+                                <!-- 酒店可选，入离时间不可选，仅可添加酒店-->
+                                <div title="0" class="hotels" style="">
+                                    <i class="tag-fav">10</i>
+                                    <h3>Goodwood Park Hotel Singapore (新加坡良木园大酒店) </h3>
+                                    <p><img src="img/img03.jpg" alt=""/></p>
+                                </div>
+
+                                <div title="1"  class="hotels">
+                                    <!-- 计算位置，step：42，1*42 -->
+                                    <i class="tag-fav">10</i>
+                                    <h3>Marina Bay Sands Singapore (新加坡滨海湾金沙大酒店) </h3>
+                                    <p><img src="img/img02.jpg" alt=""/></p>
+                                </div>
+
+                                <div title="2"  class="hotels">
+                                    <!-- 2*42 -->
+                                    <i class="tag-fav">10</i>
+                                    <h3>Days Hotel Singapore at Zhongshan Park (新加坡中山公园戴斯酒店)</h3>
+                                    <p><img src="img/img01.jpg" alt=""/></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- comments -->
+                    <div class="comments">
+                        <div class="comment-text">
+                            <span class="avatar"><img src="img/avatar01.png" alt="" /></span>
+                            都说法国签证已经不再难，但是每天还是能看见几个莫名其妙的拒签
+                        </div>
+                        <div class="comment-text">
+                            <span class="avatar"><img src="img/avatar01.png" alt="" /></span>
+                            都说法国签证已经不再难，但是每天还是能看见几个莫名其妙的拒签,都说法国签证已经不再难，但是每天还是能看见几个莫名其妙的拒签
+                        </div>
+                    </div>
+                    <!-- add hotel end -->
+
+
+
+
+                    <!-- takephoto tag-->
+                    <div class="time-tag takephoto"></div>
+
+                    <!-- takephoto -->
+                    <div class="time-act">
+                        <div class="time-bar"><span class="time-tag clock"></span><p>下午20：16，3月31日</p></div>
+                        <div class="photo-box">
+                            <p>三月的最后一天，这里景色如画,</p>
+                            <div class="photo-imgs"><img src="img/photo01.jpg" alt=""/><img src="img/photo02.jpg" alt=""/><img src="img/photo01.jpg" alt=""/></div>
+
+                        </div>
+                    </div>
+                    <!-- takephoto end-->
+                    <!-- scenic end-->
+                    <!-- scenic end-->
+                    <div class="time-act">
+                        <div class="time-bar"><span class="time-tag clock"></span><span class="edit"></span><p>下午20：16，3月31日</p></div>
+                        <div class="scenic-box">
+                            <div class="scenicinfo">辰山植物园</div>
+                            <div class="scenicspot"><img src="img/pic01.jpg" alt=""/></div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- add flight-->
+                    <div class="time-act">
+                        <div class="time-bar"><span class="time-tag clock"></span><span class="edit"></span><p>下午20：16，3月31日</p></div>
+                        <div class="flight-box">
+                            <h3>东方航空MU5401</h3>
+                            <div class="flight-from">
+                                <big>上海</big>
+                                <small>虹桥T2</small>
+                                <strong>14:20</strong>
+                            </div>
+                            <div class="flight-to">
+                                <big>北京</big>
+                                <small>首都T1</small>
+                                <strong>16:20</strong>
+                            </div>
+                            <abbr></abbr>
+                        </div>
+                        <div class="comment-box"></div>
+                    </div>
+                    <!-- add tool --->
+                    <div class="time-tool">
+                        <div class="time-tag addact"></div>
+                        <div class="action">
+                            <div class="time-tag flight"></div>
+                            <div class="time-tag hotel"></div>
+                            <div class="time-tag scenic"></div>
+                        </div>
+                    </div>
+                    <!--                -->
+                    <div class="time-tag geol"></div>
+
+
+            </div>
+
+
+
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
