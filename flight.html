@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="telephone=no" name="format-detection">
+	<title>flight</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+</head>
+<body>
+<div style="height:44px;">
+	<div class="cm-header">
+		<h1 class="cm-page-title js_title">搜索机票</h1>
+		<span class="cm-header-icon icon_share i_close"></span>		
+	</div>
+</div>
+<div id="main" >
+	<div class="main-frame">
+		<div class="main-viewport">
+			
+	<!----> <link rel="stylesheet" type="text/css" href="css/matrix-flight-list.css">
+			<div class="search-tool">
+	            <div class="flight-cell search-dapart"><span>出发城市</span><input placeholder="上海"/></div>
+	            <div class="flight-cell search-dest"><span>到达城市</span><input placeholder="成都"/></div>
+	            	
+	            <div class="flight-cell search-date"><span>出发日期 </span><input  placeholder="yy-mm-dd"/></div>
+	            <div class="flight-cell search-btn"><span>&nbsp; </span><input class="g-btn" value="搜索" /></div>
+	            	
+	            
+	        </div>
+			<div class="mf-list-contain mf-flight-list-wrap" id="flightListBox" style="height: 915px;">
+<!-- data-->	
+			  <ul class="mf-list-ul" style="">
+                <li data-ss="2016-04-21 21:40:00" class="js-open-cabin mf-main-cabin mf-arrow-bottom " data-id="policy_19" data-open="false" data-firstopen="false" data-segtpe="1">
+                    <div class="mf-flight-info1">
+                        <div class="mf-date-wrap">
+                            <div class="mf-dtime">
+                                <span class="mf-list-time">21:40</span>
+                                <span class="mf-airPort">浦东T2</span>
+                            </div>
+                            <div class="mf-middle">
+                                 <i class="mf-flight-line-list"></i>
+                            </div>
+                            <div class="mf-atime">
+                                <span class="mf-list-time">01:05</span>
+                                <span class="mf-airPort">双流T2</span>
+                            </div>
+                        </div>
+                        <div class="mf-price-wrap">
+                            <div class="mf-overh clearfix">
+                                <div class="mf-flight-price">
+                                    <span class="mf-flight-yen">¥</span>
+                                    <span class="mf-flight-price-num">
+                                       <ins class="nmlPrice"> <!--如果是tripType为2并且是往返特惠的话 则应该显示往返特惠的价格其他的则是最低价格-->
+                                        806
+                                        </ins>
+                                         </span>
+                                </div>
+                            </div>
+                            <div class="mf-discount">
+                                4.6折
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mf-flight-info2">
+                        <div class="mf-flight-info-left">
+                            <span class="mf-flight-icon">
+                                <img src="http://pic.c-ctrip.com/flight_intl/airline_logo/32/eu.png">
+                            </span>
+                            <span class="mf-flight-no">成都航EU6678</span>
+                            <span class="mf-flight-no">| 320(中)</span>
+                            <span class="mf-flight-comfort">                                
+                                <span class="mf-blue-bd wifiShow">WIFI</span>
+                            </span>
+                        </div>
+                        <div class="mf-flight-info-right">
+                            <span class="mf-flight-info-num">3张</span>                            
+                        </div>
+                    </div>
+                </li>
+                <li class="mf-flight-cabins" style="display:none;">
+                    <div class="mf-flight-loading flight-reloading">
+                        <div class="cui-i cui-w-loading"></div>
+                        <div class="cui-i cui-m-logo"></div>
+                    </div>
+                </li>
+              </ul>
+           <!-- data-->
+            <ul class="mf-list-ul" style="">
+                <li data-ss="2016-04-21 21:40:00" class="js-open-cabin mf-main-cabin mf-arrow-bottom " data-id="policy_19" data-open="false" data-firstopen="false" data-segtpe="1">
+                    <div class="mf-flight-info1">
+                        <div class="mf-date-wrap">
+                            <div class="mf-dtime">
+                                <span class="mf-list-time">21:40</span>
+                                <span class="mf-airPort">浦东T2</span>
+                            </div>
+                            <div class="mf-middle">
+                                 <i class="mf-flight-line-list"></i>
+                            </div>
+                            <div class="mf-atime">
+                                <span class="mf-list-time">01:05</span>
+                                <span class="mf-airPort">双流T2</span>
+                            </div>
+                        </div>
+                        <div class="mf-price-wrap">
+                            <div class="mf-overh clearfix">
+                                <div class="mf-flight-price">
+                                    <span class="mf-flight-yen">¥</span>
+                                    <span class="mf-flight-price-num">
+                                       <ins class="nmlPrice"> <!--如果是tripType为2并且是往返特惠的话 则应该显示往返特惠的价格其他的则是最低价格-->
+                                        806
+                                        </ins>
+                                         </span>
+                                </div>
+                            </div>
+                            <div class="mf-discount">
+                                4.6折
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mf-flight-info2">
+                        <div class="mf-flight-info-left">
+                            <span class="mf-flight-icon">
+                                <img src="http://pic.c-ctrip.com/flight_intl/airline_logo/32/eu.png">
+                            </span>
+                            <span class="mf-flight-no">成都航EU6678</span>
+                            <span class="mf-flight-no">| 320(中)</span>
+                            <span class="mf-flight-comfort">                                
+                                <span class="mf-blue-bd wifiShow">WIFI</span>
+                            </span>
+                        </div>
+                        <div class="mf-flight-info-right">
+                            <span class="mf-flight-info-num">3张</span>                            
+                        </div>
+                    </div>
+                </li>
+                <li class="mf-flight-cabins" style="display:none;">
+                    <div class="mf-flight-loading flight-reloading">
+                        <div class="cui-i cui-w-loading"></div>
+                        <div class="cui-i cui-m-logo"></div>
+                    </div>
+                </li>
+              </ul>
+           <!-- data-->
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           </div>
+<!----> 
+            
+            
+            
+		</div>
+	</div>
+</div>
+</body>
+</html>

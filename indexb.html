@@ -25,27 +25,27 @@
             <big>patata</big>
         </div>
     </div>
-
+    
 </div>
-<div id="main" >
+<div id="main">
 	<div class="main-frame">
-		<div class="main-viewport">
+		<div class="main-viewport">            
             <div class="user-box">
                 <div class="users">
                     <p><span class="avatar"><img src="img/avatar01.png" alt="" /></span></p>
                     <p><span class="avatar"><img src="img/avatar02.png" alt="" /></span></p>
                     <p><span class="avatar"><img src="img/avatar01.png" alt="" /></span></p>
                     <p class="avatar addmore"></p>
-                </div>
+                </div>                
                 <div class="avatar more"></div>
             </div>
-
+            
             <div class="v-info">
-                <h2>5日4晚 泰国游</h2>
+                <h2 class="vtitle-blank" contenteditable="true">加个标题呗</h2>
                 <ul>
                     <li>
                         <small>出发</small>
-                        <big>上海</big>
+                        <big>上海</big> 
                     </li>
                     <li>
                         <small>返回</small>
@@ -60,12 +60,12 @@
                         <big>~3300￥</big>
                     </li>
                 </ul>
-            </div>
-
+            </div>            
+            
             <div class="timeline">
-
+                
                     <div class="time-tag geol"></div>
-
+                    
                     <!-- add flight-->
                     <div class="time-act">
                         <div class="time-bar"><span class="time-tag clock"></span><span class="status">已预订</span><p>下午20：16，3月31日</p></div>
@@ -81,7 +81,7 @@
                                 <small>首都T1</small>
                                 <strong>16:20</strong>
                             </div>
-                            <abbr></abbr>
+                            <abbr></abbr>                        
                         </div>
                         <div class="comment-box"></div>
                     </div>
@@ -113,7 +113,7 @@
                                     <p><img src="img/img01.jpg" alt=""/></p>
                                 </div>
                                 <div title="2"  class="hotels">
-                                    添加
+                                    添加                                    
                                 </div>
                             </div>
                         </div>
@@ -127,24 +127,24 @@
                         <div class="comment-text">
                             <span class="avatar"><img src="img/avatar01.png" alt="" /></span>
                             都说法国签证已经不再难，但是每天还是能看见几个莫名其妙的拒签,都说法国签证已经不再难，但是每天还是能看见几个莫名其妙的拒签
-                        </div>
+                        </div>                           
                     </div>
                     <!-- add hotel end -->
-
-
-
-
+                    
+                    
+                    
+                    
                     <!-- takephoto tag-->
                     <div class="time-tag takephoto"></div>
-
-                    <!-- takephoto -->
+                    
+                    <!-- takephoto -->                    
                     <div class="time-act">
                         <div class="time-bar"><span class="time-tag clock"></span><p>下午20：16，3月31日</p></div>
                         <div class="photo-box">
                             <p>三月的最后一天，这里景色如画,</p>
                             <div class="photo-imgs"><img src="img/photo01.jpg" alt=""/><img src="img/photo02.jpg" alt=""/><img src="img/photo01.jpg" alt=""/></div>
-
-                        </div>
+                        
+                        </div>                    
                     </div>
                     <!-- takephoto end-->
                     <!-- scenic end-->
@@ -154,11 +154,11 @@
                         <div class="scenic-box">
                             <div class="scenicinfo">辰山植物园</div>
                             <div class="scenicspot"><img src="img/pic01.jpg" alt=""/></div>
-
-                        </div>
+                            
+                        </div>                    
                     </div>
-
-
+                    
+                    
                     <!-- add flight-->
                     <div class="time-act">
                         <div class="time-bar"><span class="time-tag clock"></span><span class="edit"></span><p>下午20：16，3月31日</p></div>
@@ -174,30 +174,57 @@
                                 <small>首都T1</small>
                                 <strong>16:20</strong>
                             </div>
-                            <abbr></abbr>
+                            <abbr></abbr>                        
                         </div>
                         <div class="comment-box"></div>
                     </div>
                     <!-- add tool --->
-                    <div class="time-tool">
+                    <div class="time-tool">                    
                         <div class="time-tag addact"></div>
                         <div class="action">
                             <div class="time-tag flight"></div>
                             <div class="time-tag hotel"></div>
-                            <div class="time-tag scenic"></div>
+                            <div class="time-tag scenic" onclick="document.getElementById('fly-layer').className='fly-layer fadein';"></div>
                         </div>
                     </div>
                     <!--                -->
                     <div class="time-tag geol"></div>
-
-
             </div>
-
-
-
 		</div>
 	</div>
 </div>
+<div class="fly-layer" id="fly-layer">
+<!--start-->
+	<div style="height:44px;">
+	<div class="cm-header">
+		<h1 class="cm-page-title js_title">搜索景点</h1>
+		<span class="cm-header-icon icon_share i_close" onclick="document.getElementById('fly-layer').className='fly-layer fadeout';"></span>		
+	</div>
+</div>
+	<div>
+	<div class="main-frame">
+		<div class="main-viewport">			
+	<!----> <link rel="stylesheet" type="text/css" href="css/addon.css">
+			<style>html{font-size:20px;}</style>
+			<div class="search-tool scenic-tool">
+	            <div class="flight-cell search-dapart"><input placeholder="游览日期"/></div>
+	            <div class="flight-cell search-dest"><input type="text" placeholder="景点名称/目的地 "/></div>
+	            <div class="flight-cell search-btn"><input class="g-btn" value="搜索" /></div>
+	        </div>
+<!-- data-->
+			<div class="ticket_list list-bottom-fix">
+				<ul class="border-list g-pro-list ttd-pro-list no-border-top">
+					<li class="js_go_to_detail" data-id="107854" data-name="上海顾村公园门票" data-source="2" id="activity_list_107854"><div class="js_visited border-item g-pro-list_pl5 ttd-pro-list-item"><div class="g-pro-list-img"> <span class="f-logo"></span> <img data-cimgsize="" class="fl fade-in" src="https://dimg02.c-ctrip.com/images/fd/tg/g2/M02/F8/4C/Cghzf1UCRVuAGf35AAE8Cq4c71s048_C_130_130_Q80.jpg"> </div><div class="g-pro-list-info g-pro-list-info-1"><h3 class="g-title ellips_line2">上海顾村公园门票</h3><div class="spot-info">4A景区</div><div class="g-pro-info-item price-row"><div class="ib_container">  <span class="u-pro-tag ib"><i class="blue">今日可用</i></span>    <span class="u-pro-tag ib"><i class="green">亲子</i></span>  <span class="u-pro-tag ib"><i class="green">自然风光</i></span>  <div class="ttd-list-price"> <span class="u-pro-price"><dfn>¥</dfn><i>18</i></span> <span class="u-start">起</span> </div></div></div><div class="g-pro-info-item"> <span class="ttd-sale">月销：332份</span>   <span class="g-score list-info-abs">4.6分</span>  </div></div></div></li></li>
+				
+				</ul>
+			</div>
+<!----> 
+		</div>
+	</div>
+</div>
+<!--end-->
+</div>
+
 
 </body>
 </html>

@@ -1,3 +1,29 @@
+var headmap = {
+    map: null,
+    lines: []
+};
+
+var CFG = {
+    users: [
+        {
+            letter: "A",
+            name: "ataa.P",
+            head: "img/avatar01.png",
+        },
+        {
+            letter: "H",
+            name: "hack.PI",
+            head: "img/avatar02.png"
+        },
+        {
+            letter: "N",
+            name: "nunn.L",
+            head: "img/avatar_b_01.png"
+            // isActive: true
+        }
+    ]
+}
+
 var Paper = React.createClass({
 
     propTypes: {
@@ -22,10 +48,10 @@ var Paper = React.createClass({
             circle,
             rounded,
             transitionEnabled,
-            ...other,
+            style,
             } = this.props;
 
-        return <div {...other} >{children}</div>
+        return <div style={style} >{children}</div>
     }
 });
 
@@ -42,6 +68,8 @@ var FixMap = React.createClass({
 
     componentDidMount: function(){
         Events.on(window, "scroll", this.scrollCallback);
+        headmap.map = new yuantu.Map({ container: 'amap' });
+        headmap.map.active();
     },
 
     componentWillUnmount: function(){
@@ -59,7 +87,7 @@ var FixMap = React.createClass({
                     <span className="cm-header-icon icon_share i_bef"></span>
                 </div>
                 <div className="map-box">
-                    <div className="map">
+                    <div className="map" id="amap">
                     </div>
                     <div className="user_me" ref="user">
                         <span className="avatar"><img src="img/avatar_b_01.png" alt="" /></span>
@@ -74,63 +102,65 @@ var FixMap = React.createClass({
 var UserBox = React.createClass({
 
     _handleAdd: function(){
-        this.refs['modal'].open()
+        this.props.modal().open("添加好友", this.renderUseList());
     },
 
-    _handleSelect: function(){
-        this.refs['modal'].close()
+    _handleSelect: function(e){
+        var id = null;
+        if(id = e.target.title){
+            CFG.users[id].isActive = !CFG.users[id].isActive;
+            this.forceUpdate();
+            this.props.modal().close();
+        }
+    },
+
+    renderItems: function(data){
+        var items = [];
+
+        data.forEach(function(o, i){
+            // if(!o.isActive){
+            var _class = o.isActive ? "curr" : "";
+
+            items.push(
+                <dl key={i}>
+                    <dt>{o.letter}</dt>
+                    <dd title={i} className={_class}>
+                        <span  title={i} className="avatar"><img title={i} src={o.head} alt="" /></span>
+                        <big  title={i}>{o.name}</big>
+                    </dd>
+                </dl>
+            )
+        });
+        return items;
+    },
+
+    renderUseList: function(){
+        var data = CFG.users;
+        return (
+            <div className="main-viewport">
+                <div className="user-list" onClick={this._handleSelect}>
+                    {this.renderItems(data)}
+                </div>
+            </div>
+        )
     },
 
     render: function(){
-        var data = [
-            {
-                name: "",
-                head: "img/avatar01.png"
-            },
-            {
-                name: "",
-                head: "img/avatar02.png"
-            },
-            {
-                name: "",
-                head: "img/avatar_b_01.png"
+        var data = CFG.users;
+
+        var activeUsers = [];
+        data.forEach(function(o, i){
+            if(o.isActive){
+                activeUsers.push(<p key={'avatar_'+i}><span className="avatar"><img src={o.head} alt={o.name} /></span></p>);
             }
-        ];
+        });
 
         return (
             <div className="user-box">
                 <div className="users">
-                    {data.map(function(o, i){
-                        return <p key={'avatar_'+i}><span className="avatar"><img src={o.head} alt={o.name} /></span></p>
-                    })}
+                    {activeUsers}
                     <p className="avatar addmore" onClick={this._handleAdd}></p>
                 </div>
-                <Modal ref="modal">
-                    <div className="user-list" onClick={this._handleSelect}>
-                        <dl>
-                            <dt>A</dt>
-                            <dd className="curr">
-                                <span className="avatar"><img src="img/avatar02.png" alt="" /></span>
-                                <big>boston.P</big>
-                            </dd>
-                            <dd>
-                                <span className="avatar"><img src="img/avatar01.png" alt="" /></span>
-                                <big>atata.P</big>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>w</dt>
-                            <dd>
-                                <span className="avatar"><img src="img/avatar02.png" alt="" /></span>
-                                <big>boston.P</big>
-                            </dd>
-                            <dd>
-                                <span className="avatar"><img src="img/avatar01.png" alt="" /></span>
-                                <big>atata.P</big>
-                            </dd>
-                        </dl>
-                    </div>
-                </Modal>
             </div>
         )
     }
@@ -138,27 +168,42 @@ var UserBox = React.createClass({
 
 
 var Vinfo = React.createClass({
-
+    getInitialState: function() {
+        return {
+            title: "",
+            startDate: null,
+            endDate: null,
+            price: 0,
+            startCity: null,
+            endCity: null
+        };
+    },
     render: function(){
+        var data = this.state;
+        var formatDate = function(d) {
+            return d ? d.getMonth() + 1 + '.' + d.getDate() : '?';
+        };
         return (
             <div className="v-info">
                 <h2>5日4晚 泰国游</h2>
                 <ul>
                     <li>
-                        <small>出发</small>
-                        <big>上海</big>
+                        <small>起点</small>
+                        <big>{data.startCity ? data.startCity : '?' }</big>
                     </li>
                     <li>
-                        <small>返回</small>
-                        <big>新迈</big>
+                        <small>终点</small>
+                        <big>{data.endCity ? data.endCity : '?' }</big>
                     </li>
                     <li>
                         <small>时间</small>
-                        <big>3.30 - 4.3</big>
+                        <big>
+                            {formatDate(data.startDate)} - {formatDate(data.end)}
+                        </big>
                     </li>
                     <li>
                         <small>经费</small>
-                        <big>~3300￥</big>
+                        <big>￥{data.price}</big>
                     </li>
                 </ul>
             </div>
@@ -180,36 +225,29 @@ var TimeAct = React.createClass({
 
     render: function(){
 
+        var data = this.props.data;
+
         return (
             <div>
                 <div className="time-act">
                     {this.renderTimeBar()}
                     <div className="flight-box">
-                        <h3>东方航空MU5401</h3>
+                        <h3>{data.company + data.flight}</h3>
                         <div className="flight-from">
                             <big>上海</big>
-                            <small>虹桥T2</small>
-                            <strong>14:20</strong>
+                            <small>{data.departAirport}</small>
+                            <strong>{data.departTime}</strong>
                         </div>
                         <div className="flight-to">
-                            <big>北京</big>
-                            <small>首都T1</small>
-                            <strong>16:20</strong>
+                            <big>成都</big>
+                            <small>{data.arriveAirport}</small>
+                            <strong>{data.arriveTime}</strong>
                         </div>
                         <abbr></abbr>
                     </div>
                 </div>
 
-                <div className="comments">
-                    <div className="comment-text">
-                        <span className="avatar"><img src="img/avatar01.png" alt="" /></span>
-                        都说法国签证已经不再难，但是每天还是能看见几个莫名其妙的拒签
-                    </div>
-                    <div className="comment-text">
-                        <span className="avatar"><img src="img/avatar01.png" alt="" /></span>
-                        都说法国签证已经不再难，但是每天还是能看见几个莫名其妙的拒签,都说法国签证已经不再难，但是每天还是能看见几个莫名其妙的拒签
-                    </div>
-                </div>
+                <Comments data={data.comments || []} />
             </div>
         )
     }
@@ -219,7 +257,7 @@ var TimeTool = React.createClass({
 
     getInitialState: function(){
         return {
-            action: false
+            action: true
         }
     },
 
@@ -242,16 +280,6 @@ var TimeTool = React.createClass({
             <div className="time-tool">
                 <div className="time-tag addact" onClick={this.handleAction}></div>
                 {this.renderItem()}
-
-                <Modal ref="flight">
-                    <h2 onClick={this._handleDone}><br /><br /><br />Flight</h2>
-                </Modal>
-                <Modal ref="hotel">
-                    <h2 onClick={this._handleDone}><br /><br /><br />hotel</h2>
-                </Modal>
-                <Modal ref="scenic">
-                    <h2 onClick={this._handleDone}><br /><br /><br />scenic</h2>
-                </Modal>
             </div>
         )
     },
@@ -267,27 +295,78 @@ var TimeTool = React.createClass({
 
         switch(_key){
             case "flight":
+                this.props.modal().open("选择机票", <SearchPage onSelected={this._handleDone} />)
+                break;
             case "hotel":
+                this.props.modal().open("选择酒店", <SearchPage onSelected={this._handleDone} />)
+                break;
             case "scenic":
                 this._key = _key;
-                this.refs[_key].open()
                 break;
             default:
                 //do nothin
         }
 
     },
-    _handleDone: function(e){
-        this.refs[this._key].close();
+
+    _handleDone: function(data){
+        this.props.modal().close();
+        this.props.onSelected(data);
     }
 });
 
-
 var TimeLine = React.createClass({
+
+    getInitialState: function(){
+        return {
+            data: []        // 形成数据
+        }
+    },
+
+    _handleAdd: function(o){
+        var that = this, vinfo = this.props.vinfo();
+
+        // 航班信息
+        if (o.flight) {
+            var mFrom = new yuantu.Marker({ address: o.departAirport });
+            var mTo   = new yuantu.Marker({ address: o.arriveAirport });
+            var line  = new yuantu.Line(mFrom, mTo);
+            line.focus();
+            headmap.lines.push(line);
+
+            // 出发城市
+            if (!vinfo.state.startCity) {
+                mFrom.queryCity(function(name) {
+                    vinfo.setState({ startCity: name });
+                });
+            }
+
+            // 终点城市
+            mTo.queryCity(function(name) {
+                vinfo.setState({ endCity: name });
+            });
+
+            // 价格计算
+            var price = vinfo.state.price;
+            var ret = o.price.match(/\d+/);
+            if (ret) {
+                price += parseInt(ret[0]);
+            }
+            vinfo.setState({ price: price });
+
+            // 时间计算
+            // 没有日期数据。
+        }
+
+        this.state.data.push(o)
+        this.forceUpdate(function(){
+            document.body.scrollTop = 100000;
+        });
+    },
 
     render: function(){
 
-        var data = [1,2,3]
+        var data = this.state.data;
 
         return (
             <div className="timeline">
@@ -296,7 +375,7 @@ var TimeLine = React.createClass({
                 {data.map(function(o, i){
                     return <TimeAct data={o} key={"act_"+i} />
                 })}
-                <TimeTool />
+                <TimeTool modal={this.props.modal} onSelected={this._handleAdd} />
             </div>
         )
     }
@@ -306,11 +385,21 @@ var TimeLine = React.createClass({
 
 var Comments = React.createClass({
 
-
     render: function(){
-        return (
-            <div>
+        var data = this.props.data || []
 
+        return (
+            <div className="comments">
+                {
+                    data.map(function(o, i){
+                        return (
+                            <div className="comment-text">
+                                <span className="avatar"><img src="img/avatar01.png" alt="" /></span>
+                                body
+                            </div>
+                        )
+                    })
+                }
             </div>
         )
 
@@ -318,44 +407,137 @@ var Comments = React.createClass({
 });
 
 
+var SearchPage = React.createClass({
+
+    getInitialState: function(){
+        return {
+            data: {
+            title: "搜索机票",
+                search: [
+                    {
+                        class: "search-dapart",
+                        label: "出发城市",
+                        format: "",
+                        value: "上海",
+                    },
+                    {
+                        class: "search-dest",
+                        label: "到达城市",
+                        format: "",
+                        value: "成都",
+                    },
+                    {
+                        class: "search-date",
+                        label: "出发日期",
+                        format: "",
+                        value: "yyyy-mm-dd",
+                    }
+                ],
+
+                flights: flight_shanghai_chengdu
+            }
+        }
+    },
+
+    _handleSelect: function(e){
+        var $t = $(e.target).parents("li");
+
+        if($t.length){
+            var idx = $t.attr('title');
+            if(idx){
+                this.props.onSelected(flight_shanghai_chengdu[idx])
+            }
+        }
+    },
+
+    render: function(){
+        var data = this.state.data;
+
+        return (
+            <div>
+                <div className="search-tool">
+                    {data.search.map(function(o, i){
+                        return <div key={"s"+i} className={"flight-cell "+o.class}><span>{o.label}</span><input placeholder={o.value}/></div>
+                    })}
+                    <div className="flight-cell search-btn"><span>&nbsp; </span><input className="g-btn" defaultValue="搜索" /></div>
+                </div>
+
+                <ul className="mf-list-ul" onClick={this._handleSelect}>
+                    {data.flights.map(function(o, i){
+                        return (
+                            <li key={i} title={i} className="js-open-cabin mf-main-cabin mf-arrow-bottom">
+                                <div className="mf-flight-info1">
+                                    <div className="mf-date-wrap">
+                                        <div className="mf-dtime">
+                                            <span className="mf-list-time">{o.departTime}</span>
+                                            <span className="mf-airPort">{o.departAirport}</span>
+                                        </div>
+                                        <div className="mf-middle">
+                                             <i className="mf-flight-line-list"></i>
+                                        </div>
+                                        <div className="mf-atime">
+                                            <span className="mf-list-time">{o.arriveTime}</span>
+                                            <span className="mf-airPort">{o.arriveAirport}</span>
+                                        </div>
+                                    </div>
+                                    <div className="mf-price-wrap">
+                                        <div className="mf-overh clearfix">
+                                            <div className="mf-flight-price">
+                                                <span className="mf-flight-price-num">
+                                                   {o.price}
+                                                   </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
+        )
+    }
+})
+
+
 var Modal = React.createClass({
 
     getInitialState: function(){
         return {
-            display: "none"
+            display: "",
+            content: "",
+            title: ""
         }
     },
 
-    open: function(){
+    open: function(title, content){
         this.setState({
-            display: "block"
+            display: "fadein",
+            title: title,
+            content: content
         })
     },
 
     close: function(){
         this.setState({
-            display: "none"
+            display: "fadeout"
         })
     },
 
     render: function() {
 
-        var styles ={
-            "display": this.state.display,
-            "position": "fixed",
-            "top": 0,
-            "left":0,
-            "bottom": 0,
-            "width": "100%",
-            "background": "#fff",
-            "zIndex": 1000
-        };
-
         return (
-            <div style={styles}>
+            <div className={"fly-layer " + this.state.display} id="fly-layer">
                 <div className="main-frame">
                     <div className="main-viewport">
-                        {this.props.children}
+                        <div style={{"height":"40px"}}>
+                            <div className="cm-header">
+                                <h1 className="cm-page-title js_title">{this.state.title}</h1>
+                                <span className="cm-header-icon icon_share i_close" onClick={this.close}></span>
+                            </div>
+                        </div>
+
+                        {this.state.content}
                     </div>
                 </div>
             </div>
@@ -365,17 +547,26 @@ var Modal = React.createClass({
 
 var App = React.createClass({
 
+    modal: function(){
+        return this.refs['modal'];
+    },
+
+    vinfo: function() {
+        return this.refs['vinfo'];
+    },
 
     render: function(){
         return (
             <Paper>
+                <Modal ref="modal" />
+
                 <FixMap />
                 <div id="main">
                     <div className="main-frame">
                         <div className="main-viewport">
-                            <UserBox />
-                            <Vinfo />
-                            <TimeLine />
+                            <UserBox modal={this.modal} />
+                            <Vinfo ref="vinfo" />
+                            <TimeLine modal={this.modal} vinfo={this.vinfo} />
                         </div>
                     </div>
 

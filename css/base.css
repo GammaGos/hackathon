@@ -5,13 +5,39 @@ img{vertical-align:middle;}
 
 /**/
 .cm-header{ top: 0;height: 44px;line-height: 26px;text-align: center;background-color: #099fde;  color: #fff;z-index: 960;}
-.cm-header .cm-header-icon{background-color: rgba(0,0,0,.3);border-radius: 50%;}
+.cm-header .cm-header-icon{background-color: rgba(0,0,0,.3);border-radius: 50%;width: 36px;height: 36px;margin: 4px;}
+.icon-back{line-height:34px;}
 .search-input{position:relative;height:28px;margin:8px 10px;}
 .search-input .search-txt{height:26px;padding:3px 28px;line-height:normal;box-sizing:border-box;background-color:#fff;border-radius:3px;display:block;font-size:12px}
 .search-input:before{width:10px;height:10px;left:6px;top:6px;border:1px solid #999;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;position:absolute;content:"";}
 .search-input:after{width:3px;height:7px;left:17px;top:15px;background:#999;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);position:absolute;content:"";}
 .hotel-cell{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-moz-flex;display:-ms-flexbox;display:flex;}
 .hotel-cell-num{-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;}
+/**/
+.fly-layer{position: fixed;z-index:970;top: 0;left: 0;width:100%;height: 100%;background-color: #fff;transform:translateY(110%)}
+
+.fly-layer.fadeout{transition: 0.5s all;transform:translateY(110%);}
+.fly-layer.fadein{transition: 0.5s all;transform:translateY(0%);}
+/**/
+.search-tool{height:150px;background-color: #f7f7f7;border: 2px solid #ddd;position: relative;z-index: 1;}
+.search-tool input{height:32px;padding:4px 28px; line-height:normal; border:1px solid #ddd;box-sizing:border-box; background-color:#fff; border-radius:3px;display:block;font-size:14px;line-height: 32px;}
+
+.flight-cell{display:block;position:absolute;margin: 10px 0;}
+
+.flight-cell span{display: block; margin-bottom:5px;font-size:12px;}
+.flight-cell input{padding:3px 3px;width: 85%;}
+.search-dapart{top:0;left:20px;}
+.search-dest{top:0; left:55%;}
+.search-date{top:65px;left:20px;}
+.search-btn{top:65px;left:55%;}
+.flight-cell .g-btn{ color: #FFF;border:0;border-radius: 5px;text-align: center;font-size: 14px;background-color: #ff9a14;}
+
+.scenic-tool {height:60px;}
+.scenic-tool .search-dapart{top:0;left:10px;width:35%;}
+.scenic-tool .search-dest{top:0; left:35%;width：35%;}
+.scenic-tool .search-btn{top:0;left:80%;width:20%;}
+
+
 /**/
 .user-list{}
 .user-list dl{}
@@ -46,6 +72,7 @@ img{vertical-align:middle;}
 /*=========*/
 .v-info{ overflow: hidden; margin: 10px;border-bottom: 2px solid #c8f2fc;}
 .v-info h2{text-align: center;}
+.v-info .vtitle-blank{color:#ceb966;border: 2px dashed #ceb966;}
 .v-info ul{display:block;overflow: hidden; padding:15px 0;background-color:#fff;}
 .v-info li{ float: left;width:20%;padding:0 2%;border-right: 2px solid #bfbfbf;text-align:center;background-color: #fff;}
 .v-info li:last-child{ border-right: none;}
@@ -67,6 +94,12 @@ img{vertical-align:middle;}
 .scenic{background-image: url(../img/icon-scenic.svg);background-size: 65%;box-shadow:0 0 15px rgba(0,0,0,.35);background-color:#fff;}
 .hotel{background-image: url(../img/icon-hotel.svg);background-size: 65%;box-shadow:0 0 15px rgba(0,0,0,.35);background-color:#fff;}
 
+.cm-header .cm-header-icon.i_close{height:36px;width:36px;margin:4px;background-image: url(../img/icon-add.svg);background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
 
 /**/
 .time-tool{margin-bottom: 20px;}
@@ -87,7 +120,6 @@ img{vertical-align:middle;}
 .flight-box abbr{position: absolute;left: 50%;bottom:14px;width:40px;height:36px;margin-left: -36px;background: url(../img/ico-flight.svg);background-size: cover;}
 
 /**/
-
 .time-act .time-bar{position: relative;z-index: 1;border-bottom: 1px solid #dbdbdb;}
 .status{position: absolute;top: 5px;right: 5px;padding: 0 5px; color:#fff;font-size: 12px; line-height: 27px;background-color:#f60; border-radius: 14px; }
 .clock{ display: block;position: absolute;left:5px;top:5px; width: 27px; height:27px;margin: 0;vertical-align: middle;background-image: url(../img/icon-clock.svg);background-color: #fff; background-size:cover; }
